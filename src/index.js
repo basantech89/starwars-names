@@ -14,3 +14,5 @@ module.exports = {
     all: starWarsNames,
     random: uniqueRandomArray(starWarsNames)
 }
+
+// small change
