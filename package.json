@@ -6,8 +6,11 @@
   "scripts": {
     "cm": "git-cz",
     "test": "mocha src/index.test.js",
-    "semantic-release": "semantic-release",
-    "coverage": "jest --forceExit --coverage --no-cache"
+    "test:watch": "mocha src/index.test.js -w",
+    "test:coverage": "nyc npm run test",
+    "test:report": "nyc --reporter=lcov --reporter=text-summary npm run test",
+    "coverage": "jest --forceExit --coverage --no-cache",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -35,13 +38,14 @@
     "jest": "27.4.5",
     "lint-staged": "12.1.3",
     "mocha": "9.1.3",
+    "nyc": "15.1.0",
     "prettier": "2.5.1",
     "semantic-release": "^18.0.1"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "npm run coverage"
+      "npm run test:coverage"
     ]
   },
   "config": {
@@ -49,15 +53,35 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "nyc": {
+    "all": true,
+    "check-coverage": true,
+    "coverageThreshold": {
+      "branches": 80,
+      "lines": 80,
+      "functions": 80,
+      "statements": 80
+    },
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "**/*.spec.js",
+      "**/*.test.js"
+    ]
+  },
   "jest": {
     "collectCoverage": true,
-    "coverageReporters": ["json", "html"],
+    "coverageReporters": [
+      "json",
+      "html"
+    ],
     "coverageThreshold": {
       "global": {
-          "branches": 90,
-          "functions": 90,
-          "lines": 90,
-          "statements": 90
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
       }
     }
   },

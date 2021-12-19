@@ -1,4 +1,6 @@
-version: 2
+version: 2.1
+orbs:
+  codecov: codecov/codecov@3.2.2
 jobs:
   build:
     docker:
@@ -6,8 +8,13 @@ jobs:
     steps:
       - checkout
       - run:
-          name: install
-          command: npm install
+        name: install
+        command: npm install
+      -run:
+        name: Test Runner
+        command: npm run test:coverage
+      - codecov/upload:
+        file: {{ coverage_report_filepath }}
       - run:
           name: release
           command: npm run semantic-release || true
