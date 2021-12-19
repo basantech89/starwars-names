@@ -8,12 +8,12 @@ jobs:
     steps:
       - checkout
       - run:
-        name: install
-        command: npm install
-      -run:
-        name: Test Runner
-        command: npm run test:coverage
-      - codecov/upload
+          name: install
+          command: npm install
+      - run:
+          name: Test Runner
+          command: npm run test:coverage
+      - codecov/upload:
           file: 'coverage/lcov.info'
       - run:
           name: release
