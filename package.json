@@ -8,7 +8,7 @@
     "test": "mocha src/index.test.js",
     "test:watch": "mocha src/index.test.js -w",
     "test:coverage": "nyc npm run test",
-    "test:report": "nyc --reporter=lcov --reporter=text-summary npm run test",
+    "test:report": "nyc --reporter=lcov --reporter=text npm run test",
     "coverage": "jest --forceExit --coverage --no-cache",
     "semantic-release": "semantic-release"
   },

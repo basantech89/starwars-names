@@ -12,7 +12,7 @@ jobs:
           command: npm install
       - run:
           name: Test Runner
-          command: npm run test:coverage
+          command: npm run test:report
       - codecov/upload:
           file: './coverage/lcov.info'
       - run:
