@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: install
+          name: Installation
           command: npm install
       - run:
           name: Test Runner

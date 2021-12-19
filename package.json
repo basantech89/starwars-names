@@ -44,7 +44,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "prettier --write"
+      "prettier --write",
+      "npm run test:coverage"
     ]
   },
   "config": {
@@ -55,12 +56,10 @@
   "nyc": {
     "all": true,
     "check-coverage": true,
-    "coverageThreshold": {
-      "branches": 80,
-      "lines": 80,
-      "functions": 80,
-      "statements": 80
-    },
+    "branches": 20,
+    "lines": 20,
+    "functions": 0,
+    "statements": 20,
     "include": [
       "src/**/*.js"
     ],
@@ -77,10 +76,10 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 90,
-        "functions": 90,
-        "lines": 90,
-        "statements": 90
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
       }
     }
   },
