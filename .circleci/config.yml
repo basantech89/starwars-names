@@ -13,7 +13,7 @@ jobs:
       -run:
         name: Test Runner
         command: npm run test:coverage
-      - codecov/upload:
+      - codecov/upload
         file: {{ coverage_report_filepath }}
       - run:
           name: release
