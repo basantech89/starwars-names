@@ -1,11 +1,11 @@
 version: 2.1
 orbs:
   codecov: codecov/codecov@3.2.2
-filters:
-  branches:
-    only: main
 jobs:
   build:
+    filters:
+      branches:
+        only: main
     docker:
       - image: 'circleci/node:latest'
     steps:
