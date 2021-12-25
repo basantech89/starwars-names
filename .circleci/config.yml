@@ -1,7 +1,7 @@
 main_only: &main_only
-filters:
-  branches:
-    only: main
+  filters:
+    branches:
+      only: main
 
 version: 2.1
 orbs:
