@@ -1,4 +1,4 @@
-branchfilters: &branchfilters
+defaults: &defaults
   filters:
     branches:
       only: main
@@ -8,7 +8,7 @@ orbs:
   codecov: codecov/codecov@3.2.2
 jobs:
   build:
-    <<: *branchfilters
+    <<: *defaults
     docker:
       - image: 'circleci/node:latest'
     steps:
