@@ -1,6 +1,8 @@
+main_only: &main_only
 filters:
   branches:
     only: main
+
 version: 2.1
 orbs:
   codecov: codecov/codecov@3.2.2
@@ -11,9 +13,11 @@ jobs:
     steps:
       - checkout
       - run:
+          <<: *main_only
           name: Installation
           command: npm install
       - run:
+          <<: *main_only
           name: Setup Code Climate test-reporter
           command: |
            # download test reporter as a static binary
@@ -21,15 +25,19 @@ jobs:
             chmod +x ./cc-test-reporter
             ./cc-test-reporter before-build      
       - run:
+          <<: *main_only
           name: Test runner
           command: npm run test:report
       - codecov/upload:
+          <<: *main_only
           file: './coverage/lcov.info'
       - run:
+          <<: *main_only
           name: Send coverage to Code Climate
           command: |
             ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
       - run:
+          <<: *main_only
           name: Release
           command: npm run semantic-release || true
 
