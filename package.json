@@ -34,8 +34,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "npm run test:coverage"
+      "prettier --write"
     ]
   },
   "config": {
