@@ -1,6 +1,6 @@
-var uniqueRandomArray = require("unique-random-array");
-var starWarsNames = require("./starwars-names.json");
-var getRandomItem = uniqueRandomArray(starWarsNames);
+const uniqueRandomArray = require("unique-random-array");
+const starWarsNames = require("./starwars-names.json");
+const getRandomItem = uniqueRandomArray(starWarsNames);
 
 function random(number) {
   var randomItems = [];
