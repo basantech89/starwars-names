@@ -10,6 +10,18 @@ jobs:
       BRANCHES: "+([0-9])?(.{+([0-9]),x}).x|main|next|next-major|beta|alpha"
     steps:
       - checkout
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
       - when:
           condition:
             not:
@@ -17,9 +29,6 @@ jobs:
                 pattern: $BRANCHES
                 value: << pipeline.git.branch >>
           steps:
-            - run:
-                name: Installation
-                command: npm install
             - run:
                 name: Setup Code Climate test-reporter
                 command: |
