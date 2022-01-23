@@ -14,7 +14,7 @@ jobs:
           condition:
             not:
               matches:
-                pattern: "main|next|next-major|beta|alpha"
+                pattern: "^alpha$"
                 value: << pipeline.git.branch >>
           steps:
             - run:
@@ -38,7 +38,7 @@ jobs:
       - when:
           condition:
             matches:
-              pattern: "main|next|next-major|beta|alpha"
+              pattern: "^alpha$"
               value: << pipeline.git.branch >>
           steps:
             - run:
