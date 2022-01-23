@@ -13,7 +13,9 @@ jobs:
       - when:
           condition:
             not:
-              equal: [ $BRANCHES, << pipeline.git.branch >> ]
+              matches:
+                pattern: $BRANCHES
+                value: << pipeline.git.branch >>
           steps:
             - run:
                 name: Installation
@@ -35,7 +37,9 @@ jobs:
                 command: ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
       - when:
           condition:
-            equal: [ $BRANCHES, << pipeline.git.branch >> ]
+            matches:
+              pattern: $BRANCHES
+              value: << pipeline.git.branch >>
           steps:
             - run:
                 name: Release
