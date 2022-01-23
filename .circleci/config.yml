@@ -7,7 +7,7 @@ jobs:
     docker:
       - image: 'circleci/node:latest'
     environment:
-      BRANCHES: alpha
+      BRANCHES: "alpha"
     steps:
       - checkout
       - when:
