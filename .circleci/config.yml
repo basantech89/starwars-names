@@ -7,14 +7,14 @@ jobs:
     docker:
       - image: 'circleci/node:latest'
     environment:
-      BRANCHES: "+([0-9])?(.{+([0-9]),x}).x|main|next|next-major|beta|alpha"
+      BRANCHES: "main|next|next-major|beta|alpha"
     steps:
       - checkout
       - when:
           condition:
             not:
               matches:
-                pattern: "+([0-9])?(.{+([0-9]),x}).x|main|next|next-major|beta|alpha"
+                pattern: "main|next|next-major|beta|alpha"
                 value: << pipeline.git.branch >>
           steps:
             - run:
@@ -38,7 +38,7 @@ jobs:
       - when:
           condition:
             matches:
-              pattern: "+([0-9])?(.{+([0-9]),x}).x|main|next|next-major|beta|alpha"
+              pattern: "main|next|next-major|beta|alpha"
               value: << pipeline.git.branch >>
           steps:
             - run:
