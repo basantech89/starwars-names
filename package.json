@@ -40,11 +40,14 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/cz-customizable"
     }
   },
   "babel": {
-    "presets": ["es2015", "stage-2"]
+    "presets": [
+      "es2015",
+      "stage-2"
+    ]
   },
   "files": [
     "dist",
@@ -66,7 +69,7 @@
     ]
   },
   "jest": {
-    "collectCoverage": true,
+    "collectC                                                                                                                                                                                  overage": true,
     "coverageReporters": [
       "json",
       "html"
@@ -91,12 +94,15 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^16.1.0",
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "chai": "4.3.4",
     "commitizen": "4.2.4",
+    "commitlint-config-gitmoji": "^2.2.5",
     "cz-conventional-changelog": "3.3.0",
+    "cz-customizable": "^6.3.0",
     "husky": "7.0.4",
     "jest": "27.4.5",
     "lint-staged": "12.1.3",
