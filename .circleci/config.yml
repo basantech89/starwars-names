@@ -43,7 +43,7 @@ jobs:
           steps:
             - run:
                 name: Release
-                command: npm run semantic-release DEBUG=semantic-release* || true
+                command: npm run semantic-release || true
 workflows:
   version: 2
   deploy:
