@@ -83,16 +83,6 @@
       }
     }
   },
-  "release": {
-    "branches": [
-      "+([0-9])?(.{+([0-9]),x}).x",
-      "main",
-      "next",
-      "next-major",
-      "{name: 'beta', prerelease: true}",
-      "{name: 'alpha', prerelease: true}"
-    ]
-  },
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
     "babel-cli": "^6.26.0",
