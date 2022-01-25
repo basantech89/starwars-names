@@ -4,7 +4,7 @@
       "main",
       "next",
       "next-major",
-      "{name: 'alpha', prerelease: true, channel: 'alpha'}"
-      "{name: 'beta', prerelease: true, channel: 'beta'}",
+      {name: 'alpha', prerelease: true, channel: 'alpha'},
+      {name: 'beta', prerelease: true, channel: 'beta'}
     ]
 }
