@@ -2,3 +2,8 @@ blabla
 blabla
 blabla
 blabla
+<<<<<<< HEAD
+=======
+blabla
+>>>>>>> alpha
+blabla

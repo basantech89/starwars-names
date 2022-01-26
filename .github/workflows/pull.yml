@@ -1,0 +1,39 @@
+name: Build
+on:	pull_request
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+          cache: 'yarn'
+      - name: Dependencies Installation
+        run: yarn install
+      - name: Test runner
+        run: yarn test:report
+      - name: Send coverage to Code Climate
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          debug: true
+          coverageCommand: yarn coverage
+          coverageLocations: |
+              ${{github.workspace}}/coverage/lcov.info:lcov
+      - name: Codecov Upload
+        uses: codecov/codecov-action@v2
+        with:
+          files: ./coverage/lcov.info
+          fail_ci_if_error: true
+          verbose: true
+      - name: NPM Release Dry Run
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn semantic-release --dry-run || true
