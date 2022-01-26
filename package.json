@@ -1,6 +1,6 @@
 {
   "name": "create-open-source-library",
-  "version": "0.0.0-development",
+  "version": "0.0.0-semantically-released",
   "description": "Get random starwars names",
   "main": "dist/index.js",
   "scripts": {
@@ -45,8 +45,7 @@
   },
   "babel": {
     "presets": [
-      "es2015",
-      "stage-2"
+      "@babel/env"
     ]
   },
   "files": [
@@ -69,21 +68,23 @@
     ]
   },
   "jest": {
-    "collectC                                                                                                                                                                                  overage": true,
+    "collectCoverage": true,
     "coverageReporters": [
       "json",
-      "html"
+      "html",
+      "lcov"
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 80,
-        "functions": 80,
-        "lines": 80,
-        "statements": 80
+        "branches": 0,
+        "functions": 0,
+        "lines": 0,
+        "statements": 0
       }
     }
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.16.11",
     "@commitlint/cli": "^16.1.0",
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
@@ -100,6 +101,6 @@
     "nyc": "15.1.0",
     "prettier": "2.5.1",
     "rimraf": "^3.0.2",
-    "semantic-release": "^19.0.2"
+    "semantic-release": "^18.0.1"
   }
 }
